@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberNow - Serviço</title>
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<div th:fragment="menutotal">
+    	<header>
+    		<a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776; Abrir</a>
+    	</header>
+    	<nav id="menu">
+    		<a href="#" onclick="fecharMenu()"> &times; Fechar</a>
+    		<a th:href="@{agendamento}"> Agendamentos </a>
+    		<a th:href="@{barbeiro}"> Barbeiros </a>
+    		<a th:href="@{cliente}"> Clientes </a>
+    		<a th:href="@{servico}"> Serviços </a>
+    		<a th:href="@{dados}"> Dados </a>
+    		<a th:href="@{/}"> Sair </a>
+    	</nav>
+    	
+   </div>
+   
+   <div th:fragment="menuCliente">
+    	<header>
+    		<a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776; Abrir</a>
+    	</header>
+    	<nav id="menu">
+    		<a href="#" onclick="fecharMenu()"> &times; Fechar</a>
+    		<a th:href="@{agendamentoCliente}"> Agendamentos </a>
+    		<a th:href="@{dadosCliente}"> Dados </a>
+    		<a th:href="@{/}"> Sair </a>
+    	</nav>
+    	
+   </div>
+   
+   <div th:fragment="menuBarbeiro">
+    	<header>
+    		<a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776; Abrir</a>
+    	</header>
+    	<nav id="menu">
+    		<a href="#" onclick="fecharMenu()"> &times; Fechar</a>
+    		<a th:href="@{agendamentoBarbeiro}"> Agendamentos </a>
+    		<a th:href="@{servicoBarbeiro}"> Serviços </a>
+    		<a th:href="@{dadosBarbeiro}"> Dados </a>
+    		<a th:href="@{/}"> Sair </a>
+    	</nav>
+    	
+   </div>
+</body>
+</html>

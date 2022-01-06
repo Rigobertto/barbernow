@@ -1,0 +1,63 @@
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.seletor{
+	background: transparent; /* importante para exibir o novo ícone */
+       width: 268px;
+       padding: 5px;
+       font-size: 16px;
+       line-height: 1;
+       border: 0;
+       border-radius: 0;
+       height: 34px;
+       -webkit-appearance: none;
+}
+
+
+header{
+	background-color: #170E48;
+	padding: 10px;
+}
+
+.btn-abrir{
+	color: #ffffff;
+	font-size:20px;
+	
+}
+
+nav{
+	height: 100%;
+	width: 0px;
+	background-color: #170E48;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	overflow: hidden;
+	transition: width 0.3s;
+}
+
+nav a{
+	color: #ffffff;
+	font-size: 20px;
+	display: block;
+	padding: 12px 10px 12px 32px;
+	
+}
+
+nav a:hover{
+	color: #170E48;
+	background-color: #ffffff;
+	
+}
+
+main{
+	padding: 10px;
+	transition: margin-left 0.5s;
+}

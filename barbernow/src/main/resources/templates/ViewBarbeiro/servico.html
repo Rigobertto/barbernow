@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Serviço</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<div th:replace="Fragmentos/navbar :: menuBarbeiro"></div>
+
+	<div class="Login-Form">
+		<main id="conteudo">
+			<div class="container" style="margin-top: 50px;">
+				<div class="main-div">
+					<div class="texto-header">
+						<h3>Lista de Serviços</h3>
+					</div>
+					<hr>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<th scope="col">ID</th>
+							<th scope="col">Nome</th>
+							<th scope="col">R$ Valor</th>
+							<th scope="col">Ações</th>
+						</thead>
+						<tbody>
+							<tr scope="row" th:each="servicos: ${servicoList}">
+								<td th:text="${servicos.id}"></td>
+								<td th:text="${servicos.nome}"></td>
+								<td th:text="${servicos.valor}"></td>
+
+
+								<td><a class="btn btn-primary"
+									th:href="@{alterarServicoBarbeiro/{id}(id=${servicos.id})}"> <i
+										class="fas fa-edit"></i>Editar
+								</a> <a class="btn btn-danger"
+									th:href="@{excluirServicoBarbeiro/{id}(id=${servicos.id})}"> <i
+										class="fas fa-times"></i>Excluir
+								</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+					<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+					<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+					<div class="container" style="">
+						<a class="btn btn-success" th:href="@{inserirServicosBarbeiro}"
+							style="position: fixed; bottom: 60px; right: 60px;"> <i
+							class="fas fa-times"></i>+
+						</a>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script>
+		function abrirMenu() {
+			document.getElementById('menu').style.width = '250px';
+			document.getElementById('conteudo').style.marginLeft = '250px';
+		}
+
+		function fecharMenu() {
+			document.getElementById('menu').style.width = '0px';
+			document.getElementById('conteudo').style.marginLeft = '0px';
+		}
+	</script>
+</body>
+</html>
