@@ -1,2 +1,3 @@
-# barbernow
+# BarberNow
 Serviço de Gerencimaneto de Barbearia
+
