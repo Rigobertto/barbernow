@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Dados</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<div th:replace="Fragmentos/navbar :: menuBarbeiro"></div>
+	<main id="conteudo">
+		<div class="container" style="margin-top: 50px;">
+			<h3>Dados</h3>
+		</div>
+		<hr>
+		<form method="get" action="/dados" th:object="${usuario}">
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Nome:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{nome}" readonly="readonly">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Cargo:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{cargo}" readonly="readonly">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Genero:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{genero}" readonly="readonly">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Email:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{email}" readonly="readonly">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Idade:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{idade}" readonly="readonly">
+				</div>
+			</div>
+			
+		
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Login:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{login}" readonly="readonly">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Senha:</label> <input class="form-control"
+					placeHolder="Ex: Percy Jackson" th:field="*{senha}" readonly="readonly">
+				</div>
+			</div>
+		</form>
+	</main>
+	<script>
+		function abrirMenu() {
+			document.getElementById('menu').style.width = '250px';
+			document.getElementById('conteudo').style.marginLeft = '250px';
+		}
+
+		function fecharMenu() {
+			document.getElementById('menu').style.width = '0px';
+			document.getElementById('conteudo').style.marginLeft = '0px';
+		}
+	</script>
+</body>
+</html>

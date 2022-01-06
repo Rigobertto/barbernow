@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Alterar Cliente</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+
+	<h4>Alterar Cliente</h4>
+	<hr>
+	<form method="post" action="/alterarCliente" th:object="${cliente}">
+		<input type="hidden" th:field="*{id}">
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Nome:</label> <input class="form-control"
+					placeHolder="Ex: Rigoberto Fernandes" th:field="*{nome}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+					<label>Email:</label> <input type="email" class="form-control"
+						placeHolder="Ex: example@example.com" th:field="*{email}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Genero:</label>
+				<select class="form-control" th:field="*{genero}">
+					<option th:each="genero : ${T(br.com.barbernow.enums.Genero).values()}"
+					th:value="${genero}" th:text="${genero}"></option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+					<label>Idade:</label> <input type="number" class="form-control"
+						placeHolder="Ex: 15" th:field="*{idade}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Login:</label> <input class="form-control"
+					placeHolder="Ex: percyjackson" th:field="*{login}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Senha:</label> <input class="form-control"
+					placeHolder="*********" th:field="*{senha}">
+			</div>
+		</div>
+
+		<div class="row">
+			<button type="submit" class="btn btn-success offset-md-4">SALVAR</button>
+			<a class="btn btn-outline-danger">VOLTAR</a>
+		</div>
+	</form>
+
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

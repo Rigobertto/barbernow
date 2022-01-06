@@ -1,0 +1,78 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Clientes</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<div th:replace="Fragmentos/navbar :: menutotal"></div>
+	<div class="Login-Form">
+		<main id="conteudo">
+			<div class="container" style="margin-top: 50px;">
+				<div class="main-div">
+					<div class="texto-header">
+						<h3>Lista de Clientes</h3>
+					</div>
+					<hr>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<th scope="col">ID</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Email</th>
+							<th scope="col">Login</th>
+							<th scope="col">Gênero</th>
+							<th scope="col">Idade</th>
+							<th scope="col">Ações</th>
+						</thead>
+						<tbody>
+							<tr scope="row" th:each="clientes: ${clienteList}">
+								<td th:text="${clientes.id}"></td>
+								<td th:text="${clientes.nome}"></td>
+								<td th:text="${clientes.email}"></td>
+								<td th:text="${clientes.login}"></td>
+								<td th:text="${clientes.genero}"></td>
+								<td th:text="${clientes.idade}"></td>
+
+								<td><a class="btn btn-primary"
+									th:href="@{alterarCliente/{id}(id=${clientes.id})}"> <i
+										class="fas fa-edit"></i>Editar
+								</a> <a class="btn btn-danger"
+									th:href="@{excluirCliente/{id}(id=${clientes.id})}"> <i
+										class="fas fa-times"></i>Excluir
+								</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+					<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+					<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+					<div class="container" style="">
+						<a class="btn btn-success" th:href="@{inserirClientes}"
+							style="position: fixed; bottom: 60px; right: 60px;"> <i
+							class="fas fa-times"></i>+
+						</a>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script>
+		function abrirMenu() {
+			document.getElementById('menu').style.width = '250px';
+			document.getElementById('conteudo').style.marginLeft = '250px';
+		}
+
+		function fecharMenu() {
+			document.getElementById('menu').style.width = '0px';
+			document.getElementById('conteudo').style.marginLeft = '0px';
+		}
+	</script>
+</body>
+</html>

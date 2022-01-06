@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Inserir Serviço</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+	<div class="Login-Form">
+		<div class="container">
+			<div class="main-div">
+				<div class="texto-header">
+					<h4>Inserir Serviço</h4>
+					<hr>
+					<form method="post" action="/InsertServicoBarbeiro" th:object="${servico}">
+
+						<div class="form-group">
+							<label>Nome do Serviço:</label> <input class="form-control"
+								placeHolder="Ex: Corte Degradê" th:field="*{nome}">
+						</div>
+
+						<div class="form-group">
+							<label>Valor do Serviço:</label> <input type="number"
+								class="form-control" placeHolder="Ex: 15,00" th:field="*{valor}">
+						</div>
+
+						
+							<button type="submit" class="btn btn-success">SALVAR</button>
+							<a th:href="@{servicoBarbeiro}" class="btn btn-outline-danger">VOLTAR</a>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

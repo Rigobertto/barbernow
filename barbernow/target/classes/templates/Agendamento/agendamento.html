@@ -1,0 +1,69 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Agendamento</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<div th:replace="Fragmentos/navbar :: menutotal"></div>
+	<div class="Login-Form">
+		<main id="conteudo">
+			<div class="container" style="margin-top: 50px;">
+				<div class="main-div">
+					<div class="texto-header">
+						<h3>Lista de Agendamentos</h3>
+					</div>
+					<hr>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<th scope="col">ID</th>
+							<th scope="col">Data</th>
+							<th scope="col">Hora</th>
+							<th scope="col">Serviço</th>
+							<th scope="col">Valor</th>
+							<th scope="col">Cliente</th>
+							<th scope="col">Ações</th>
+						</thead>
+						<tbody>
+							<tr scope="row" th:each="agendamentos: ${agendamentoList}">
+								<td th:text="${agendamentos.id}"></td>
+								<td th:text="${agendamentos.data}"></td>
+								<td th:text="${agendamentos.hora}"></td>
+								<td th:text="${agendamentos.servico.nome}"></td>
+								<td th:text="${agendamentos.servico.valor}"></td>
+								<td th:text="${agendamentos.clientes.nome}"></td>
+
+								<td><a class="btn btn-danger"
+									th:href="@{excluirAgendamento/{id}(id=${agendamentos.id})}">
+										<i class="fas fa-times"></i>Excluir
+								</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+					<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+					<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script>
+		function abrirMenu() {
+			document.getElementById('menu').style.width = '250px';
+			document.getElementById('conteudo').style.marginLeft = '250px';
+		}
+
+		function fecharMenu() {
+			document.getElementById('menu').style.width = '0px';
+			document.getElementById('conteudo').style.marginLeft = '0px';
+		}
+	</script>
+</body>
+</html>

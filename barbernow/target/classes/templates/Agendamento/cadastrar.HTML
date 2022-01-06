@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>BarberNow - Inserir Agendamento</title>
+<meta name="author" content="BarberNow">
+<link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+	<div class="Login-Form">
+		<div class="container">
+			<div class="main-div">
+				<div class="texto-header">
+					<h4>Inserir Agendamento</h4>
+					<hr>
+					<form method="post" action="/InsertAgendamento"
+						th:object="${agendamento}">
+
+						<div class="form-group">
+							<label>Data:</label> <input type="date" 
+								class="form-control" placeHolder="Ex: 01/12/2021"
+								th:field="*{data}">
+						</div>
+
+						<div class="form-group">
+							<label>Hora:</label> <input type="time" 
+								class="form-control" placeHolder="Ex: 01/12/2021"
+								th:field="*{data}">
+						</div>
+
+
+						<script type="text/javascript">
+							$("#dataAgendamento").mask("00/00/0000");
+						</script>
+
+
+						<div class="form-group">
+							<label>Selecione o Serviço:</label> <select class="form-control"
+								name="servico" th:field="*{servico}">
+								<option th:each="servico : ${servicos}" th:value="${servico.id}"
+									th:text=" ${servico.nome} + ' / R$' + ${servico.valor}"></option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Selecione o Cliente:</label> <select class="form-control"
+								name="cliente" th:field="*{clientes}">
+								<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+									th:text=" ${cliente.id} + ' - ' + ${cliente.nome}"></option>
+							</select>
+						</div>
+
+
+						<button type="submit" class="btn btn-success">SALVAR</button>
+						<a th:href="@{agendamento}" class="btn btn-outline-danger">VOLTAR</a>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>
