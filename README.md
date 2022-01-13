@@ -7,4 +7,4 @@ Sistema com CRUD para Clientes, Serviços, Barbeiro e Agedamento
 
 ![Login](https://github.com/Rigobertto/barbernow/blob/main/img/login.png)
 
-![CRUD Clientes](https://github.com/Rigobertto/barbernow/blob/main/img/listaClientes.png)
+![CRUD Clientes](https://github.com/Rigobertto/barbernow/blob/main/img/listarClientes.png)
